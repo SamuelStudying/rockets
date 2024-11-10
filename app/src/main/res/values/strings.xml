@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ICB0007-UF1-PR01-samuelmateostovar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="logo">logo</string>
+    <string name="astro_lab">Astro Lab</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="username">Username</string>
+    <string name="powered_by">POWERED BY</string>
+    <string name="logoSpacex" />
+    <string name="launch">Launch</string>
+    <string name="astro_lab_logo">Astro Lab Logo</string>
 </resources>
