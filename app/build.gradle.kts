@@ -27,16 +27,33 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    composeOptions{
+        kotlinCompilerExtensionVersion = "1.5.15"
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        compose = true
     }
 }
 
 dependencies {
+
+    // Java language implementation
+    implementation(libs.androidx.activity)
+
+    // Kotlin
+    implementation(libs.androidx.activity.ktx)
+
     // Jetpack Compose integration
     implementation(libs.androidx.navigation.compose)
 
@@ -46,9 +63,20 @@ dependencies {
 
     // Feature module support for Fragments
     implementation(libs.androidx.navigation.dynamic.features.fragment)
+    implementation(libs.androidx.tiles.tooling.preview)
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.material3.android)
 
     // Testing Navigation
     androidTestImplementation(libs.androidx.navigation.testing)
+
+    debugImplementation(libs.androidx.ui.tooling)
+
+    implementation (libs.androidx.ui)
+    implementation (libs.androidx.material)
+    implementation (libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

@@ -10,4 +10,5 @@
     <string name="logoSpacex" />
     <string name="launch">Launch</string>
     <string name="astro_lab_logo">Astro Lab Logo</string>
+    <string name="logotexto">logoTexto</string>
 </resources>
