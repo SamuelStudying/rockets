@@ -45,6 +45,7 @@ class SplashFragment : Fragment() {
 
 @Composable
 fun SplashComposable(navController: NavController) {
+
     LaunchedEffect(key1 = true) {
         delay(4000)
         navController.navigate(R.id.action_splashFragment_to_loginFragment)
