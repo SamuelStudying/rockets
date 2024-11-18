@@ -5,19 +5,46 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashFragment">
 
+    <!-- Splash Fragment definido en Jetpack Compose (Composable) -->
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.SplashFragment"
-        android:label="splash_fragment">
+        android:label="splash_fragment"
+        tools:layout="">
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"
+            app:popEnterAnim="@animator/nav_default_pop_enter_anim"
+            app:popExitAnim="@animator/nav_default_pop_exit_anim" />
     </fragment>
 
+    <!-- Login Fragment -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_rocketListFragment"
+            app:destination="@id/rocketListFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"
+            app:popEnterAnim="@animator/nav_default_pop_enter_anim"
+            app:popExitAnim="@animator/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <!-- Rocket List Fragment -->
+    <fragment
+        android:id="@+id/rocketListFragment"
+        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.RocketListFragment"
+        android:label="rocket_list_fragment"
+        tools:layout="@layout/rocket_list_fragment">
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="user" />
+    </fragment>
 
 </navigation>
