@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 
 class LoginFragment : Fragment() {
+
     private var toast : Toast? = null
 
     override fun onCreateView(
