@@ -12,5 +12,6 @@
     <string name="astro_lab_logo">Astro Lab Logo</string>
     <string name="logotexto">logoTexto</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rocket_list">ROCKET LIST</string>
+    <string name="logo_item_rocket">logo-item-rocket</string>
 </resources>

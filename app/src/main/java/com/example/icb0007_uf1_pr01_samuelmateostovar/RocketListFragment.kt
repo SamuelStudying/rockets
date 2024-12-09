@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.icb0007_uf1_pr01_samuelmateostovar.adapter.RocketAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -30,7 +33,10 @@ class RocketListFragment : Fragment() {
 
             when {
                 apiResponse.isSuccessful -> {
-                    val rockets : List<Rocket>? = apiResponse.body()
+                    val rocketList : List<Rocket>? = apiResponse.body()
+                    if (rocketList != null) {
+                        initRecyclerView(requireView(), rocketList)
+                    }
                     Log.d("RocketListFragment", "Success: ${apiResponse.body()}")
                 }
                 else -> {
@@ -38,5 +44,11 @@ class RocketListFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun initRecyclerView(view : View, rocketList: List<Rocket>) {
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerRockets)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = RocketAdapter(rocketList = rocketList)
     }
 }
