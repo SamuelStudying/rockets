@@ -13,8 +13,6 @@ import androidx.navigation.fragment.findNavController
 class LoginFragment : Fragment() {
     private var toast : Toast? = null
 
-    private var toast : Toast? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

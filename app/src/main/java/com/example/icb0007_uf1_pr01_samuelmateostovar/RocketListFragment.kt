@@ -30,6 +30,7 @@ class RocketListFragment : Fragment() {
 
             when {
                 apiResponse.isSuccessful -> {
+                    val rockets : List<Rocket>? = apiResponse.body()
                     Log.d("RocketListFragment", "Success: ${apiResponse.body()}")
                 }
                 else -> {
