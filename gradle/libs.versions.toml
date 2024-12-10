@@ -20,6 +20,7 @@ tilesToolingPreview = "1.4.1"
 cameraCore = "1.4.0"
 material3Android = "1.3.1"
 ui = "1.7.5"
+roomCommon = "2.6.1"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
@@ -32,6 +33,14 @@ androidx-navigation-dynamic-features-fragment = { module = "androidx.navigation:
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "navigationTesting" }
 androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigationTesting" }
 androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationTesting" }
+androidx-room-guava = { module = "androidx.room:room-guava", version.ref = "roomCommon" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomCommon" }
+androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "roomCommon" }
+androidx-room-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCommon" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomCommon" }
+androidx-room-rxjava2 = { module = "androidx.room:room-rxjava2", version.ref = "roomCommon" }
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "roomCommon" }
+androidx-room-rxjava3 = { module = "androidx.room:room-rxjava3", version.ref = "roomCommon" }
 androidx-ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "ui" }
 androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "ui" }
@@ -49,6 +58,7 @@ androidx-camera-core = { group = "androidx.camera", name = "camera-core", versio
 androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterGson" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

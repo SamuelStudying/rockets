@@ -49,6 +49,16 @@ android {
 
 dependencies {
 
+    // Room
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.rxjava2)
+    implementation(libs.androidx.room.rxjava3)
+    implementation(libs.androidx.room.guava)
+    testImplementation(libs.androidx.room.testing)
+    implementation(libs.androidx.room.paging)
+
     // Java language implementation
     implementation(libs.androidx.activity)
 
@@ -67,6 +77,7 @@ dependencies {
     implementation(libs.androidx.tiles.tooling.preview)
     implementation(libs.androidx.camera.core)
     implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.room.common)
 
     // Testing Navigation
     androidTestImplementation(libs.androidx.navigation.testing)
