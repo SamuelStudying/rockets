@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
 data class RocketEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-
     val name: String,
     val type: String,
     val active: Boolean,
@@ -17,8 +16,8 @@ data class RocketEntity(
     val company: String,
     val wikipedia: String,
     val description: String,
-    val heightMeters: Double,
-    val heightFeet: Double,
-    val diameterMeters: Double,
-    val diameterFeet: Double
+    val height: Dimension,
+    val diameter: Dimension,
+    val meters: Double,
+    val feet: Double
 )

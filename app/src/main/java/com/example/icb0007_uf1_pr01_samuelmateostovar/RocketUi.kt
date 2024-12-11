@@ -1,6 +1,6 @@
 package com.example.icb0007_uf1_pr01_samuelmateostovar
 
-data class Rocket(
+data class RocketUi(
     val name: String,
     val type: String,
     val active: Boolean,
@@ -11,10 +11,7 @@ data class Rocket(
     val wikipedia: String,
     val description: String,
     val height: Dimension,
-    val diameter: Dimension
-)
-
-data class Dimension(
+    val diameter: Dimension,
     val meters: Double,
     val feet: Double
 )

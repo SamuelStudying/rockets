@@ -1,7 +1,8 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -51,56 +52,41 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.runtime)
-    annotationProcessor(libs.androidx.room.room.compiler)
-    implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.rxjava2)
-    implementation(libs.androidx.room.rxjava3)
-    implementation(libs.androidx.room.guava)
-    testImplementation(libs.androidx.room.testing)
-    implementation(libs.androidx.room.paging)
-
-    // Java language implementation
-    implementation(libs.androidx.activity)
-
-    // Kotlin
-    implementation(libs.androidx.activity.ktx)
-
-    // Jetpack Compose integration
-    implementation(libs.androidx.navigation.compose)
-
-    // Navigation integration
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-
-    // Feature module support for Fragments
-    implementation(libs.androidx.navigation.dynamic.features.fragment)
-    implementation(libs.androidx.tiles.tooling.preview)
-    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.foundation.android)
     implementation(libs.androidx.material3.android)
-    implementation(libs.androidx.room.common)
+    ksp(libs.androidx.room.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
-    // Testing Navigation
-    androidTestImplementation(libs.androidx.navigation.testing)
+    // Core dependencies
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
 
-    implementation(libs.picasso)
+    // Retrofit y Gson
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-    implementation(libs.kotlinx.coroutines.android)
 
-    debugImplementation(libs.androidx.ui.tooling)
-
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.material)
+    // Jetpack Compose
+    implementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
+    // Navigation
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.compose)
+
+    // Picasso
+    implementation(libs.picasso)
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Anotaciones
+    implementation("org.jetbrains:annotations:23.0.0") {
+        exclude(group = "com.intellij", module = "annotations")
+    }
 }
