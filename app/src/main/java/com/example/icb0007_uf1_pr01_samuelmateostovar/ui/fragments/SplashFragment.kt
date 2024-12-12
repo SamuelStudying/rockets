@@ -1,4 +1,4 @@
-package com.example.icb0007_uf1_pr01_samuelmateostovar
+package com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -27,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.delay
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.icb0007_uf1_pr01_samuelmateostovar.R
 
 class SplashFragment : Fragment() {
 

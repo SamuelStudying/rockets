@@ -1,4 +1,6 @@
-package com.example.icb0007_uf1_pr01_samuelmateostovar
+package com.example.icb0007_uf1_pr01_samuelmateostovar.models
+
+import com.example.icb0007_uf1_pr01_samuelmateostovar.data.remote.Dimension
 
 data class RocketUi(
     val name: String,

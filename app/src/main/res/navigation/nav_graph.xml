@@ -8,7 +8,7 @@
     <!-- Splash Fragment definido en Jetpack Compose (Composable) -->
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.SplashFragment"
+        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments.SplashFragment"
         android:label="splash_fragment"
         tools:layout="">
         <action
@@ -23,7 +23,7 @@
     <!-- Login Fragment -->
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.LoginFragment"
+        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments.LoginFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment">
         <action
@@ -38,7 +38,7 @@
     <!-- Rocket List Fragment -->
     <fragment
         android:id="@+id/rocketListFragment"
-        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.RocketListFragment"
+        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments.RocketListFragment"
         android:label="rocket_list_fragment"
         tools:layout="@layout/rocket_list_fragment">
         <argument

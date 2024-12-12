@@ -1,4 +1,4 @@
-package com.example.icb0007_uf1_pr01_samuelmateostovar
+package com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.icb0007_uf1_pr01_samuelmateostovar.R
 
 class LoginFragment : Fragment() {
     private var toast : Toast? = null

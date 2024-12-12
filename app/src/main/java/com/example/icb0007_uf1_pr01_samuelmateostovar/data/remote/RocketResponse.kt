@@ -1,4 +1,4 @@
-package com.example.icb0007_uf1_pr01_samuelmateostovar
+package com.example.icb0007_uf1_pr01_samuelmateostovar.data.remote
 
 data class Rocket(
     val height: Dimension,

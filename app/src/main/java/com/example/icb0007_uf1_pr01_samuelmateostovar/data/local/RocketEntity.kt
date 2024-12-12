@@ -1,7 +1,8 @@
-package com.example.icb0007_uf1_pr01_samuelmateostovar
+package com.example.icb0007_uf1_pr01_samuelmateostovar.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.icb0007_uf1_pr01_samuelmateostovar.data.remote.Dimension
 
 @Entity
 data class RocketEntity(
