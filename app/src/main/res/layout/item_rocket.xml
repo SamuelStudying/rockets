@@ -6,10 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="8dp"
     android:layout_margin="8dp"
-    android:background="#44304856">
+    android:background="#44304856"
+    android:id="@+id/cl_itemRocketContainer">
 
     <ImageView
-        android:id="@+id/ivRocket"
+        android:id="@+id/iv_rocket"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:contentDescription="@string/logo_item_rocket"
@@ -18,15 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/tvRocketName"
+        android:id="@+id/tv_rocketName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/ivRocket"
-        app:layout_constraintStart_toEndOf="@id/ivRocket"
-        app:layout_constraintTop_toTopOf="@id/ivRocket"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_rocket"
+        app:layout_constraintStart_toEndOf="@id/iv_rocket"
+        app:layout_constraintTop_toTopOf="@id/iv_rocket"
         app:layout_constraintVertical_bias="0.5"
         tools:text="Rocket" />
 

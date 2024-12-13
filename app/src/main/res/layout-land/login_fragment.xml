@@ -85,7 +85,7 @@
             android:src="@drawable/astro_lab" />
 
         <TextView
-            android:id="@+id/textPowered"
+            android:id="@+id/tv_textPowered"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

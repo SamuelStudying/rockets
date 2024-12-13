@@ -3,8 +3,11 @@ package com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -39,10 +42,15 @@ class RocketListFragment : Fragment() {
 
         observeViewModel()
         viewModel.fetchRockets()
+
+        val ivMenu = view.findViewById<ImageView>(R.id.iv_menuHamburguesa)
+        ivMenu.setOnClickListener {
+//            showMenu(it)
+        }
     }
 
     private fun initRecyclerView(view : View) {
-        rvRockets = view.findViewById(R.id.rvRockets)
+        rvRockets = view.findViewById(R.id.rv_rockets)
         rocketAdapter = RocketAdapter()
         rvRockets.adapter = rocketAdapter
         rvRockets.layoutManager = LinearLayoutManager(requireContext())
@@ -63,4 +71,24 @@ class RocketListFragment : Fragment() {
             }
         }
     }
+
+    // TODO metodo para gestionar las acciones del menu popUp
+    /*private fun showMenu(surce: View) {
+        val menuPop = PopupMenu(requireContext(), surce)
+        menuPop.menuInflater.inflate(R.menu.popup_menu, menuPop.menu)
+
+        menuPop.setOnMenuItemClickListener { item: MenuItem ->
+            when (item.itemId) {
+                R.id.option1 -> {
+                    true
+                }
+                R.id.option2 -> {
+                    true
+                }
+                else -> false
+            }
+        }
+
+        menuPop.show()
+    }*/
 }

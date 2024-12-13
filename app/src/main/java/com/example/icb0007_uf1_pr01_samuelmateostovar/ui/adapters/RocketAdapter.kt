@@ -24,7 +24,7 @@ class RocketAdapter : ListAdapter<RocketUi, RocketAdapter.RocketViewHolder>(Rock
     }
 
     class RocketViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val name: TextView = itemView.findViewById(R.id.tvRocketName)
+        private val name: TextView = itemView.findViewById(R.id.tv_rocketName)
 
         fun bind(rocket: RocketUi) {
             name.text = rocket.name
