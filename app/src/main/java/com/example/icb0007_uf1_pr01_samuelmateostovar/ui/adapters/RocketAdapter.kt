@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.icb0007_uf1_pr01_samuelmateostovar.R
 import com.example.icb0007_uf1_pr01_samuelmateostovar.models.RocketUi
 
-class RocketAdapter : ListAdapter<RocketUi, RocketAdapter.RocketViewHolder>(RocketDiffCallBack()) {
+class RocketAdapter(private val itemClick: (RocketUi) -> Unit) : ListAdapter<RocketUi, RocketAdapter.RocketViewHolder>(RocketDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RocketViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -21,6 +21,9 @@ class RocketAdapter : ListAdapter<RocketUi, RocketAdapter.RocketViewHolder>(Rock
     override fun onBindViewHolder(holder: RocketViewHolder, position: Int) {
         val rocket = getItem(position)
         holder.bind(rocket)
+        holder.itemView.setOnClickListener {
+            itemClick(rocket)
+        }
     }
 
     class RocketViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -4,102 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.fragments.LoginFragment">
 
-    <LinearLayout
-        android:id="@+id/leftLayout"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_centeredContainer"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/rightLayout"
-        app:layout_constraintWidth_percent="0.5">
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_astroLabLogo"
+            android:layout_width="190dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/astro_lab_logo"
+            android:src="@drawable/astro_lab"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
-            android:text="@string/login"
             android:fontFamily="sans-serif-smallcaps"
-            android:textStyle="bold"
-            android:textSize="45sp"
+            android:text="@string/login"
             android:textColor="@color/theme"
-            android:gravity="center"/>
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/et_userName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_astroLabLogo" />
 
         <EditText
             android:id="@+id/et_userName"
-            android:layout_width="match_parent"
+            android:layout_width="500dp"
             android:layout_height="48dp"
-            android:layout_marginVertical="20dp"
-            android:layout_gravity="center"
-            android:autofillHints="admin"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:hint="@string/username"
             android:inputType="textPersonName"
             android:textColorHint="@color/theme"
-            android:hint="@string/username"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login"
+            app:layout_constraintBottom_toTopOf="@id/et_password"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
             android:id="@+id/et_password"
-            android:layout_width="match_parent"
+            android:layout_width="500dp"
             android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:layout_marginVertical="20dp"
-            android:autofillHints="admin1234"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textColorHint="@color/theme" />
+            android:textColorHint="@color/theme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_userName"
+            app:layout_constraintBottom_toTopOf="@id/bt_login"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/bt_login"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#499DBA"
+            android:text="@string/launch"
+            android:textColor="@color/theme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_password"
+            app:layout_constraintBottom_toTopOf="@id/ly_poweredContainer"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ly_poweredContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
-            android:textColor="@color/theme"
-            android:backgroundTint="#499DBA"
-            android:text="@string/launch"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rightLayout"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/leftLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
-        app:layout_constraintWidth_percent="0.4">
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_marginVertical="40dp"
-            android:contentDescription="@string/astro_lab_logo"
-            android:src="@drawable/astro_lab" />
-
-        <TextView
-            android:id="@+id/tv_textPowered"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/powered_by"/>
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt_login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
 
-        <ImageView
-            android:id="@+id/iv_spacex"
-            android:layout_width="150dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/logoSpacex"
-            android:src="@drawable/spacex"
-            android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/tv_textPowered"
+                android:layout_width="90dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="2dp"
+                android:textColor="@color/theme"
+                android:text="@string/powered_by" />
 
-
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/iv_spacex"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="2dp"
+                android:paddingBottom="4dp"
+                android:contentDescription="@string/powered_by"
+                android:src="@drawable/spacex" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

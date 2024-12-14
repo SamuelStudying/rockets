@@ -1,10 +1,12 @@
 package com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -53,7 +55,10 @@ class LoginFragment : Fragment() {
             val loginAction = LoginFragmentDirections.actionLoginFragmentToRocketListFragment(userName)
             findNavController().navigate(loginAction)
         } else {
-            toast?.setText("Vaya.. Parece que aún no tienes licencia")
+            etUserName?.text?.clear()
+            etPassword?.text?.clear()
+            toast?.setText("Vaya.. Parece que aún no tienes licencia\n" +
+                    "Vuelve a intentarlo")
         }
 
         toast?.show()

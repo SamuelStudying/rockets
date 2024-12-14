@@ -1,5 +1,7 @@
 package com.example.icb0007_uf1_pr01_samuelmateostovar.data.remote
 
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

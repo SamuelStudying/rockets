@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Nombre del cohete -->
+        <TextView
+            android:id="@+id/tv_rocketName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rocket_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <!-- Tipo de cohete -->
+        <TextView
+            android:id="@+id/tv_rocketType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rocket_type"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- Estado activo -->
+        <TextView
+            android:id="@+id/tv_rocketActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/active"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- País -->
+        <TextView
+            android:id="@+id/tv_rocketCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/country"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- Empresa -->
+        <TextView
+            android:id="@+id/tv_rocketCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/company"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- Wikipedia -->
+        <TextView
+            android:id="@+id/tv_rocketWikipedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wikipedia"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- Costo por lanzamiento -->
+        <TextView
+            android:id="@+id/tv_rocketCostPerLaunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cost_per_launch"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- Tasa de éxito -->
+        <TextView
+            android:id="@+id/tv_rocketSuccessRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/success_rate"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- Height -->
+        <TextView
+            android:id="@+id/tv_rocketHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/height"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- Diameter -->
+        <TextView
+            android:id="@+id/tv_rocketDiameter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/diameter"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/tv_rocketDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:textSize="16sp"
+            android:paddingBottom="8dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

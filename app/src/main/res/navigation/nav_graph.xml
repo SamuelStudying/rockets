@@ -45,6 +45,31 @@
             android:name="username"
             app:argType="string"
             android:defaultValue="user" />
+        <action
+            android:id="@+id/action_rocketListFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"
+            app:popEnterAnim="@animator/nav_default_pop_enter_anim"
+            app:popExitAnim="@animator/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_rocketListFragment_to_rocketDetailFragment"
+            app:destination="@id/rocketDetailFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"
+            app:popEnterAnim="@animator/nav_default_pop_enter_anim"
+            app:popExitAnim="@animator/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <!-- Rocket Detail Fragment -->
+    <fragment
+        android:id="@+id/rocketDetailFragment"
+        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments.RocketDetailFragment"
+        android:label="Rocket Details"
+        tools:layout="@layout/rocket_detail_fragment">
+        <argument
+            android:name="selectedRocket"
+            app:argType="com.example.icb0007_uf1_pr01_samuelmateostovar.models.RocketUi" />
     </fragment>
 
 </navigation>

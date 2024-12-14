@@ -1,12 +1,16 @@
 package com.example.icb0007_uf1_pr01_samuelmateostovar.models
 
+import android.os.Parcelable
 import com.example.icb0007_uf1_pr01_samuelmateostovar.data.remote.Dimension
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class RocketUi(
     val name: String,
     val type: String,
     val active: Boolean,
-    val costPerLaunch: Int,
+    val costPerLaunch: Long,
     val successRatePct: Int,
     val country: String,
     val company: String,
@@ -16,4 +20,4 @@ data class RocketUi(
     val diameter: Dimension,
     val meters: Double,
     val feet: Double
-)
+) : Parcelable

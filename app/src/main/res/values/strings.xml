@@ -14,4 +14,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="rocket_list">ROCKET LIST</string>
     <string name="logo_item_rocket">logo-item-rocket</string>
+    <string name="actualuser">\@actualUser</string>
+    <string name="rocket_name">Rocket Name</string>
+    <string name="rocket_type">Rocket Type</string>
+    <string name="country_and_company">Country and Company</string>
+    <string name="active">Active</string>
+    <string name="cost_per_launch">Cost Per Launch</string>
+    <string name="success_rate">Success Rate</string>
+    <string name="dimensions">Dimensions</string>
+    <string name="description">Description</string>
+    <string name="country">Country</string>
+    <string name="company">Company</string>
+    <string name="wikipedia">Wikipedia</string>
+    <string name="height">Height</string>
+    <string name="diameter">Diameter</string>
 </resources>
