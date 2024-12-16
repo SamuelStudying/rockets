@@ -7,14 +7,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.compose.ui.unit.Constraints
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.example.icb0007_uf1_pr01_samuelmateostovar.R
 import com.example.icb0007_uf1_pr01_samuelmateostovar.models.RocketUi
 
 class RocketDetailFragment : Fragment() {
+
+    private var isEditing = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,11 +31,17 @@ class RocketDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val rocket = arguments?.let { RocketDetailFragmentArgs.fromBundle(requireArguments()).selectedRocket }
+
+        val etLayoutContainer = view.findViewById<ViewGroup>(R.id.ly_etContainer)
+        val btnMod = view.findViewById<Button>(R.id.btn_editRocket)
+        val btnDel = view.findViewById<Button>(R.id.btn_deleteRocket)
+
         showingData(rocket)
         setupWikiLink(rocket)
         setupMapLink(rocket)
+
+        configureButtons(rocket, btnMod, etLayoutContainer, btnDel)
     }
 
     private fun showingData(rocket: RocketUi?) {
@@ -51,6 +62,43 @@ class RocketDetailFragment : Fragment() {
         view?.findViewById<EditText>(R.id.et_rocketDiameter)?.hint = "Diameter: " + rocket?.diameter.toString()
         view?.findViewById<EditText>(R.id.et_rocketDescription)?.hint = rocket?.description
 
+    }
+
+    private fun configureButtons(rocket: RocketUi?, btnMod: Button, etLayoutContainer: ViewGroup, btnDel: Button) {
+        if (rocket?.isLocal == true) {
+            btnMod.visibility = View.VISIBLE
+            setupBtnModify(etLayoutContainer, btnMod)
+        } else {
+            btnMod.visibility = View.GONE
+            centerDeleteButton(btnDel)
+        }
+    }
+
+    private fun setupBtnModify(editTexts: ViewGroup, btnMod: Button) {
+        btnMod.setOnClickListener {
+            isEditing = !isEditing
+
+            toggleEditText(editTexts, isEditing)
+
+            btnMod.text = if (isEditing) "Guardar" else "Editar"
+        }
+    }
+
+    private fun toggleEditText(editTexts: ViewGroup, isEditing: Boolean) {
+        for (i in 0 until editTexts.childCount) {
+            val child = editTexts.getChildAt(i)
+
+            if (child is EditText) {
+                child.isEnabled = isEditing
+            }
+        }
+    }
+
+    private fun centerDeleteButton(btnDel: Button) {
+        val params = btnDel.layoutParams as ConstraintLayout.LayoutParams
+        params.startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+        params.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+        btnDel.layoutParams = params
     }
 
     @SuppressLint("QueryPermissionsNeeded")

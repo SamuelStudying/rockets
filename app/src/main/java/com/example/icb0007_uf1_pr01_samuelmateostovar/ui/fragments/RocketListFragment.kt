@@ -24,7 +24,6 @@ import com.example.icb0007_uf1_pr01_samuelmateostovar.ui.adapters.RocketAdapter
 import kotlinx.coroutines.launch
 
 class RocketListFragment : Fragment() {
-    private var toast : Toast? = null //TODO
 
     private val repository by lazy { RocketRepository(requireContext()) }
     private val viewModel: MainViewModel by viewModels { MainViewModelFactory(repository) }
@@ -37,7 +36,9 @@ class RocketListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.rocket_list_fragment, container, false)
+
         initRecyclerView(view)
+
         return view
     }
 
@@ -59,10 +60,12 @@ class RocketListFragment : Fragment() {
 
     private fun initRecyclerView(view : View) {
         rvRockets = view.findViewById(R.id.rv_rockets)
+
         rocketAdapter = RocketAdapter { selectedRocket ->
             val action = RocketListFragmentDirections.actionRocketListFragmentToRocketDetailFragment(selectedRocket)
             findNavController().navigate(action)
         }
+
         rvRockets.adapter = rocketAdapter
         rvRockets.layoutManager = LinearLayoutManager(requireContext())
     }

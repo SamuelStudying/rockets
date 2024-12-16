@@ -21,5 +21,6 @@ data class RocketEntity(
     val height: Dimension,
     val diameter: Dimension,
     val meters: Double,
-    val feet: Double
+    val feet: Double,
+    val isLocal: Boolean
 )

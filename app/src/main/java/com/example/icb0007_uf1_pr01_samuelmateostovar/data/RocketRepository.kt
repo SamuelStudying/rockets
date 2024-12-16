@@ -55,7 +55,8 @@ fun RocketEntity.toUiModel() : RocketUi {
         height = height,
         diameter = diameter,
         meters = height.meters,
-        feet = height.feet
+        feet = height.feet,
+        isLocal = isLocal
     )
 }
 
@@ -74,6 +75,7 @@ fun Rocket.toEntity() : RocketEntity {
         height = height,
         diameter = diameter,
         meters = height.meters,
-        feet = height.feet
+        feet = height.feet,
+        isLocal = false
     )
 }
