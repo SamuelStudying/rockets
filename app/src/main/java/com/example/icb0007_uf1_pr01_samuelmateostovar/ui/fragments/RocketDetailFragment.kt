@@ -3,15 +3,15 @@ package com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.icb0007_uf1_pr01_samuelmateostovar.R
-import com.example.icb0007_uf1_pr01_samuelmateostovar.data.remote.Rocket
 import com.example.icb0007_uf1_pr01_samuelmateostovar.models.RocketUi
 
 class RocketDetailFragment : Fragment() {
@@ -29,7 +29,8 @@ class RocketDetailFragment : Fragment() {
 
         val rocket = arguments?.let { RocketDetailFragmentArgs.fromBundle(requireArguments()).selectedRocket }
         showingData(rocket)
-        setupLink(rocket)
+        setupWikiLink(rocket)
+        setupMapLink(rocket)
     }
 
     private fun showingData(rocket: RocketUi?) {
@@ -38,34 +39,69 @@ class RocketDetailFragment : Fragment() {
             Toast.makeText(requireContext(), "¡UPS! Parece que este cohete anda en el taller", Toast.LENGTH_LONG).show()
         }
 
-        view?.findViewById<TextView>(R.id.tv_rocketName)?.text = rocket?.name
-        view?.findViewById<TextView>(R.id.tv_rocketType)?.text = rocket?.type
-        view?.findViewById<TextView>(R.id.tv_rocketActive)?.text = rocket?.active.toString()
-        view?.findViewById<TextView>(R.id.tv_rocketCountry)?.text = rocket?.country
-        view?.findViewById<TextView>(R.id.tv_rocketCompany)?.text = rocket?.company
-        view?.findViewById<TextView>(R.id.tv_rocketWikipedia)?.text = rocket?.wikipedia
-        view?.findViewById<TextView>(R.id.tv_rocketCostPerLaunch)?.text = rocket?.costPerLaunch.toString()
-        view?.findViewById<TextView>(R.id.tv_rocketSuccessRate)?.text = rocket?.successRatePct.toString()
-        view?.findViewById<TextView>(R.id.tv_rocketHeight)?.text = "Height: " + rocket?.height.toString()
-        view?.findViewById<TextView>(R.id.tv_rocketDiameter)?.text = "Diameter: " + rocket?.diameter.toString()
-        view?.findViewById<TextView>(R.id.tv_rocketDescription)?.text = rocket?.description
+        view?.findViewById<EditText>(R.id.et_rocketName)?.hint = rocket?.name
+        view?.findViewById<EditText>(R.id.et_rocketType)?.hint = rocket?.type
+        view?.findViewById<EditText>(R.id.et_rocketActive)?.hint = rocket?.active.toString()
+        view?.findViewById<EditText>(R.id.et_rocketCountry)?.hint = rocket?.country
+        view?.findViewById<EditText>(R.id.et_rocketCompany)?.hint = rocket?.company
+        view?.findViewById<EditText>(R.id.et_rocketWikipedia)?.hint = rocket?.wikipedia
+        view?.findViewById<EditText>(R.id.et_rocketCostPerLaunch)?.hint = rocket?.costPerLaunch.toString()
+        view?.findViewById<EditText>(R.id.et_rocketSuccessRate)?.hint = rocket?.successRatePct.toString()
+        view?.findViewById<EditText>(R.id.et_rocketHeight)?.hint = "Height: " + rocket?.height.toString()
+        view?.findViewById<EditText>(R.id.et_rocketDiameter)?.hint = "Diameter: " + rocket?.diameter.toString()
+        view?.findViewById<EditText>(R.id.et_rocketDescription)?.hint = rocket?.description
 
     }
 
     @SuppressLint("QueryPermissionsNeeded")
-    private fun setupLink(rocket: RocketUi?) {
-        val linkWiki = view?.findViewById<TextView>(R.id.tv_rocketWikipedia)
+    private fun setupWikiLink(rocket: RocketUi?) {
+        val tvLinkWiki = view?.findViewById<TextView>(R.id.et_rocketWikipedia)
 
-        linkWiki?.setOnClickListener {
-            if (rocket?.wikipedia.isNullOrEmpty()) return@setOnClickListener
+        tvLinkWiki?.setOnClickListener {
 
-            val intent = Intent(Intent.ACTION_VIEW).apply {
-                data = android.net.Uri.parse(rocket?.wikipedia.toString())
+            val url = rocket?.wikipedia
+
+            if (url.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), "El enlace no está disponible", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }
 
-            if (intent.resolveActivity(requireContext().packageManager) != null) {
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = android.net.Uri.parse(url)
+            }
+
+            try {
                 startActivity(intent)
-            } else {
+            } catch (e: Exception) {
+                Log.e("RocketDetailFragment", "Error al abrir el enlace", e)
+                Toast.makeText(requireContext(), "No existe ningún navegador disponible en este dispositivo", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    @SuppressLint("QueryPermissionsNeeded")
+    private fun setupMapLink(rocket: RocketUi?) {
+        val tvMapWiki = view?.findViewById<TextView>(R.id.et_rocketCountry)
+
+        tvMapWiki?.setOnClickListener {
+
+            val country = rocket?.country
+
+            if (country.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), "La ubicación no está disponible", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            val location = "geo:0,0?q=${country}"
+
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = android.net.Uri.parse(location)
+            }
+
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {
+                Log.e("RocketDetailFragment", "Error al abrir el enlace", e)
                 Toast.makeText(requireContext(), "No existe ningún navegador disponible en este dispositivo", Toast.LENGTH_LONG).show()
             }
         }

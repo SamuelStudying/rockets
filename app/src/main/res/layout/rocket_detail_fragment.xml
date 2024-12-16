@@ -14,105 +14,210 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Nombre del cohete -->
-        <TextView
-            android:id="@+id/tv_rocketName"
+        <!-- Nombre -->
+        <EditText
+            android:id="@+id/et_rocketName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rocket_name"
+            android:autofillHints="Rocket Name"
+            android:hint="@string/rocket_name"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            android:textStyle="bold" />
 
-        <!-- Tipo de cohete -->
-        <TextView
-            android:id="@+id/tv_rocketType"
+        <!-- Tipo -->
+        <EditText
+            android:id="@+id/et_rocketType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rocket_type"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Type"
+            android:hint="@string/type"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
-        <!-- Estado activo -->
-        <TextView
-            android:id="@+id/tv_rocketActive"
+        <!-- Estado del cohete -->
+        <EditText
+            android:id="@+id/et_rocketActive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/active"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Status"
+            android:hint="@string/status"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
         <!-- País -->
-        <TextView
-            android:id="@+id/tv_rocketCountry"
+        <EditText
+            android:id="@+id/et_rocketCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/country"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Country"
+            android:hint="@string/country"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
         <!-- Empresa -->
-        <TextView
-            android:id="@+id/tv_rocketCompany"
+        <EditText
+            android:id="@+id/et_rocketCompany"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/company"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Company"
+            android:hint="@string/company"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
-        <!-- Wikipedia -->
-        <TextView
-            android:id="@+id/tv_rocketWikipedia"
+        <!-- Enlace Wikipedia -->
+        <EditText
+            android:id="@+id/et_rocketWikipedia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/wikipedia"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Wikipedia"
+            android:hint="@string/wikipedia"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
         <!-- Costo por lanzamiento -->
-        <TextView
-            android:id="@+id/tv_rocketCostPerLaunch"
+        <EditText
+            android:id="@+id/et_rocketCostPerLaunch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cost_per_launch"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Cost per launch"
+            android:hint="@string/cost_per_launch"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
         <!-- Tasa de éxito -->
-        <TextView
-            android:id="@+id/tv_rocketSuccessRate"
+        <EditText
+            android:id="@+id/et_rocketSuccessRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/success_rate"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Succes rate"
+            android:hint="@string/success_rate"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
-        <!-- Height -->
-        <TextView
-            android:id="@+id/tv_rocketHeight"
+        <!-- Tamaño: Altura -->
+        <EditText
+            android:id="@+id/et_rocketHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/height"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Height"
+            android:hint="@string/height"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
-        <!-- Diameter -->
-        <TextView
-            android:id="@+id/tv_rocketDiameter"
+        <!-- Tamaño: Diámetro -->
+        <EditText
+            android:id="@+id/et_rocketDiameter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/diameter"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Diameter"
+            android:hint="@string/diameter"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
 
         <!-- Descripción -->
-        <TextView
-            android:id="@+id/tv_rocketDescription"
+        <EditText
+            android:id="@+id/et_rocketDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/description"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:autofillHints="Description"
+            android:hint="@string/description"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@null"
+            android:inputType="textMultiLine"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="16sp" />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_detailFoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btn_editRocket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/editar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_deleteRocket"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/btn_deleteRocket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eliminar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_editRocket"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

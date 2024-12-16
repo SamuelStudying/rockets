@@ -18,7 +18,9 @@ class RocketRepository(context : Context) {
 
     fun getRockets(): Flow<List<RocketUi>> = flow {
 
+        // TODO ELIMINAR ESTA SENTECIA: limpia la bbdd cada vez que se inicia la App
         rocketDao.clearAll()
+
         val localData = rocketDao.getAll()
 
         if (localData.isNotEmpty()) {
