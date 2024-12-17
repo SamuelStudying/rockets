@@ -117,7 +117,7 @@
             android:hint="@string/cost_per_launch"
             android:enabled="false"
             android:background="@null"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             android:padding="8dp"
             android:textColor="@color/theme"
             android:textColorHint="@color/theme"
@@ -132,41 +132,91 @@
             android:hint="@string/success_rate"
             android:enabled="false"
             android:background="@null"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             android:padding="8dp"
             android:textColor="@color/theme"
             android:textColorHint="@color/theme"
             android:textSize="16sp" />
 
         <!-- Tamaño: Altura -->
-        <EditText
-            android:id="@+id/et_rocketHeight"
+        <TextView
+            android:id="@+id/tv_rocketHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:autofillHints="Height"
-            android:hint="@string/height"
+            android:text="@string/height"
             android:enabled="false"
-            android:background="@null"
-            android:inputType="number"
             android:padding="8dp"
             android:textColor="@color/theme"
             android:textColorHint="@color/theme"
             android:textSize="16sp" />
 
-        <!-- Tamaño: Diámetro -->
         <EditText
-            android:id="@+id/et_rocketDiameter"
+            android:id="@+id/et_heightMeters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:autofillHints="Diameter"
-            android:hint="@string/diameter"
+            android:autofillHints="Meters"
+            android:hint="@string/meters"
             android:enabled="false"
             android:background="@null"
-            android:inputType="number"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/et_heightFeet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="Feet"
+            android:hint="@string/feet"
+            android:enabled="false"
+            android:background="@null"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="13sp" />
+
+        <!-- Tamaño: Diámetro -->
+        <TextView
+            android:id="@+id/tv_rocketDiameter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/diameter"
+            android:enabled="false"
             android:padding="8dp"
             android:textColor="@color/theme"
             android:textColorHint="@color/theme"
             android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_diameterMeters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="Meters"
+            android:hint="@string/meters"
+            android:enabled="false"
+            android:background="@null"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/et_diameterFeet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="Feet"
+            android:hint="@string/feet"
+            android:enabled="false"
+            android:background="@null"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/theme"
+            android:textColorHint="@color/theme"
+            android:textSize="13sp" />
 
         <!-- Descripción -->
         <EditText

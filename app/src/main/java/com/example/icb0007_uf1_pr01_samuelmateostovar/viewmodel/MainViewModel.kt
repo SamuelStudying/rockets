@@ -17,6 +17,9 @@ class MainViewModel(private val repository : RocketRepository) : ViewModel() {
     private val _errorState = MutableStateFlow<String?>(null)
     val errorState : StateFlow<String?> = _errorState
 
+    private val _isRocketDeleted = MutableStateFlow(false)
+    val isRocketDeleted: StateFlow<Boolean> = _isRocketDeleted
+
     fun fetchRockets() {
         viewModelScope.launch {
             repository.getRockets().catch { error ->
@@ -26,5 +29,28 @@ class MainViewModel(private val repository : RocketRepository) : ViewModel() {
                     _rocketUiList.value = rockets
                 }
         }
+    }
+
+    fun updateRocket(updatedRocket: RocketUi) {
+        viewModelScope.launch {
+            repository.updateRocket(updatedRocket)
+            fetchRockets()
+        }
+    }
+
+    fun deleteRocket(id: String) {
+        viewModelScope.launch {
+            val rocket = repository.getRocketById(id)
+            if (rocket.isLocal) {
+                repository.deleteLocalRocket(id)
+                _isRocketDeleted.value = true
+            } else {
+                _isRocketDeleted.value = false
+            }
+        }
+    }
+
+    fun resetRocketDeletedState() {
+        _isRocketDeleted.value = false
     }
 }

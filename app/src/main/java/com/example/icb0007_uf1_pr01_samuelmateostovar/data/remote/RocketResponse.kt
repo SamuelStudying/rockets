@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 data class Rocket(
+    val id: String,
     val height: Dimension,
     val diameter: Dimension,
     val flickrImages: List<String>,
@@ -21,8 +22,7 @@ data class Rocket(
     val country: String,
     val company: String,
     val wikipedia: String,
-    val description: String,
-    val id: String
+    val description: String
 )
 
 @Parcelize

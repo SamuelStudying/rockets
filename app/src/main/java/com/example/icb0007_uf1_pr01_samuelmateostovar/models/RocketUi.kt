@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class RocketUi(
+    val id: String,
     val name: String,
     val type: String,
     val active: Boolean,
@@ -18,7 +19,5 @@ data class RocketUi(
     val description: String,
     val height: Dimension,
     val diameter: Dimension,
-    val meters: Double,
-    val feet: Double,
     val isLocal: Boolean
 ) : Parcelable

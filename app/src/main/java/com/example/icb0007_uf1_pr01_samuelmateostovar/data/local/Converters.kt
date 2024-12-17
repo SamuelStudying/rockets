@@ -19,15 +19,4 @@ class Converters {
         val type = object : TypeToken<Dimension>() {}.type
         return gson.fromJson(dimensionJson, type)
     }
-
-    @TypeConverter
-    fun fromStringList(list: List<String>?): String {
-        return gson.toJson(list)
-    }
-
-    @TypeConverter
-    fun toStringList(json: String): List<String>? {
-        val type = object : TypeToken<List<String>>() {}.type
-        return gson.fromJson(json, type)
-    }
 }

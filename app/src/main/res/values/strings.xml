@@ -16,8 +16,6 @@
     <string name="logo_item_rocket">logo-item-rocket</string>
     <string name="actualuser">\@actualUser</string>
     <string name="rocket_name">Rocket Name</string>
-    <string name="rocket_type">Rocket Type</string>
-    <string name="country_and_company">Country and Company</string>
     <string name="active">Active</string>
     <string name="cost_per_launch">Cost per launch</string>
     <string name="success_rate">Success rate</string>
@@ -26,11 +24,14 @@
     <string name="country">Country</string>
     <string name="company">Company</string>
     <string name="wikipedia">Wikipedia</string>
-    <string name="height">Height</string>
     <string name="diameter">Diameter</string>
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="rocket_status">Rocket Status</string>
     <string name="status">Status</string>
     <string name="type">Type</string>
+    <string name="height">Height</string>
+    <string name="meters">Meters</string>
+    <string name="feet">Feet</string>
+    <string name="name">Name</string>
 </resources>
