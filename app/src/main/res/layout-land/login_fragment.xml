@@ -24,7 +24,6 @@
             android:contentDescription="@string/astro_lab_logo"
             android:src="@drawable/astro_lab"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.499"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

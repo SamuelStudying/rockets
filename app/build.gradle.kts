@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.foundation.android)
     implementation(libs.androidx.material3.android)
+    implementation(libs.car.ui.lib)
     ksp(libs.androidx.room.room.compiler)
     implementation(libs.androidx.room.ktx)
 

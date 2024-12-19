@@ -34,4 +34,9 @@
     <string name="meters">Meters</string>
     <string name="feet">Feet</string>
     <string name="name">Name</string>
+    <string name="est_activo">¿Está activo?</string>
+    <string name="fabricar">Fabricar</string>
+    <string name="search">Search</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="aniadir_nuevo_cohete">Crear cohete</string>
 </resources>
