@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.icb0007_uf1_pr01_samuelmateostovar.models.RocketUi
 import com.example.icb0007_uf1_pr01_samuelmateostovar.data.RocketRepository
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -17,8 +19,8 @@ class MainViewModel(private val repository : RocketRepository) : ViewModel() {
     private val _errorState = MutableStateFlow<String?>(null)
     val errorState : StateFlow<String?> = _errorState
 
-    private val _isRocketDeleted = MutableStateFlow(false)
-    val isRocketDeleted: StateFlow<Boolean> = _isRocketDeleted
+    private val _deleteRocketEvent = MutableSharedFlow<Result<Boolean>>(replay = 0)
+    val deleteRocketEvent: SharedFlow<Result<Boolean>> = _deleteRocketEvent
 
     fun fetchRockets() {
         viewModelScope.launch {
@@ -31,6 +33,13 @@ class MainViewModel(private val repository : RocketRepository) : ViewModel() {
         }
     }
 
+    fun addRocket(newRocket: RocketUi) {
+        viewModelScope.launch {
+            repository.addLocalRocket(newRocket)
+            fetchRockets()
+        }
+    }
+
     fun updateRocket(updatedRocket: RocketUi) {
         viewModelScope.launch {
             repository.updateRocket(updatedRocket)
@@ -40,17 +49,17 @@ class MainViewModel(private val repository : RocketRepository) : ViewModel() {
 
     fun deleteRocket(id: String) {
         viewModelScope.launch {
-            val rocket = repository.getRocketById(id)
-            if (rocket.isLocal) {
-                repository.deleteLocalRocket(id)
-                _isRocketDeleted.value = true
-            } else {
-                _isRocketDeleted.value = false
+            try {
+                val rocket = repository.getRocketById(id)
+                if (rocket.isLocal) {
+                    repository.deleteLocalRocket(id)
+                    _deleteRocketEvent.emit(Result.success(true)) // Éxito al eliminar
+                } else {
+                    _deleteRocketEvent.emit(Result.success(false)) // No se puede eliminar (no local)
+                }
+            } catch (e: Exception) {
+                _deleteRocketEvent.emit(Result.failure(e)) // Error durante la eliminación
             }
         }
-    }
-
-    fun resetRocketDeletedState() {
-        _isRocketDeleted.value = false
     }
 }

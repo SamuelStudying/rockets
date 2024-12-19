@@ -92,6 +92,7 @@ class RocketListFragment : Fragment() {
         menuPop.setOnMenuItemClickListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.action_add_rocket -> {
+                    findNavController().navigate(R.id.action_rocketListFragment_to_createRocketFragment)
                     true
                 }
                 R.id.action_logout -> {

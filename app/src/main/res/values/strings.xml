@@ -39,4 +39,6 @@
     <string name="search">Search</string>
     <string name="cerrar_sesion">Cerrar sesión</string>
     <string name="aniadir_nuevo_cohete">Crear cohete</string>
+    <string name="altura">Altura</string>
+    <string name="di_metro">Diámetro</string>
 </resources>

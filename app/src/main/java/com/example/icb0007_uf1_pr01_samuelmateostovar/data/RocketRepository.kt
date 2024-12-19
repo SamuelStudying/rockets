@@ -46,6 +46,10 @@ class RocketRepository(context : Context) {
         }
     }.flowOn(Dispatchers.IO)
 
+    suspend fun addLocalRocket(rocket: RocketUi) {
+        rocketDao.insert(rocket.toEntity())
+    }
+
     suspend fun updateRocket(updatedRocket: RocketUi) {
         val entity = updatedRocket.toEntity()
         rocketDao.updateRocket(entity)

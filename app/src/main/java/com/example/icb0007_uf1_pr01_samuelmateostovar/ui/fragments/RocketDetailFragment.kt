@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -63,22 +64,30 @@ class RocketDetailFragment : Fragment() {
             return
         }
 
-       setHintToEditText(R.id.et_rocketName, rocket.name)
-       setHintToEditText(R.id.et_rocketType, rocket.type)
-       setHintToEditText(R.id.et_rocketActive, rocket.active.toString())
-       setHintToEditText(R.id.et_rocketCountry, rocket.country)
-       setHintToEditText(R.id.et_rocketCompany, rocket.company)
-       setHintToEditText(R.id.et_rocketWikipedia, rocket.wikipedia)
-       setHintToEditText(R.id.et_rocketCostPerLaunch, rocket.costPerLaunch.toString())
-       setHintToEditText(R.id.et_rocketSuccessRate, rocket.successRatePct.toString())
-       setHintToEditText(R.id.tv_rocketHeight, rocket.height.toString())
-       setHintToEditText(R.id.tv_rocketDiameter, rocket.diameter.toString())
-       setHintToEditText(R.id.et_rocketDescription, rocket.description)
-
+        setHintToEditText(R.id.et_rocketName, rocket.name)
+        setHintToEditText(R.id.et_rocketType, rocket.type)
+        setHintToEditText(R.id.et_rocketActive, rocket.active.toString())
+        setHintToEditText(R.id.et_rocketCountry, rocket.country)
+        setHintToEditText(R.id.et_rocketCompany, rocket.company)
+        setHintToEditText(R.id.et_rocketWikipedia, rocket.wikipedia)
+        setHintToEditText(R.id.et_rocketCostPerLaunch, rocket.costPerLaunch.toString())
+        setHintToEditText(R.id.et_rocketSuccessRate, rocket.successRatePct.toString())
+        showTextView(R.id.tv_rocketHeight)
+        setHintToEditText(R.id.et_heightMeters, rocket.height.meters.toString() + " Metros")
+        setHintToEditText(R.id.et_heightFeet, rocket.height.feet.toString() + " Pies")
+        showTextView(R.id.tv_rocketDiameter)
+        setHintToEditText(R.id.et_diameterMeters, rocket.diameter.meters.toString() + " Metros")
+        setHintToEditText(R.id.et_diameterFeet, rocket.diameter.feet.toString() + " Pies")
+        setHintToEditText(R.id.et_rocketDescription, rocket.description)
     }
 
     private fun setHintToEditText(id: Int, hint: String) {
         view?.findViewById<EditText>(id)?.hint = hint
+    }
+
+    private fun showTextView(id: Int): String {
+        val text = view?.findViewById<TextView>(id)?.text.toString()
+        return text
     }
 
     private fun configureButtons(rocket: RocketUi?, btnMod: Button, etLayoutContainer: ViewGroup, btnDel: Button) {
@@ -95,16 +104,23 @@ class RocketDetailFragment : Fragment() {
         setupButtonDelete(rocket, btnDel)
     }
 
-    private fun setupButtonModify(editTexts: ViewGroup, btnMod: Button, rocket: RocketUi?) {
+    private fun setupButtonModify(editTexts: ViewGroup, btnMod: Button, rocket: RocketUi) {
         btnMod.setOnClickListener {
             isEditing = !isEditing
 
             toggleEditText(editTexts, isEditing)
 
             if (!isEditing) {
-                val udpatedRocket = rocket?.copy(
+                val updatedRocket = rocket.copyFromView(requireView())
 
-                )
+                if (updatedRocket.name.isBlank() || updatedRocket.company.isBlank() || updatedRocket.country.isBlank()) {
+                    Toast.makeText(requireContext(), "Los campos Nombre, Empresa y País son obligatorios.", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                // Actualizar el cohete
+                viewModel.updateRocket(updatedRocket)
+                Toast.makeText(requireContext(), "¡Cohete actualizado con éxito!", Toast.LENGTH_SHORT).show()
             }
 
             btnMod.text = if (isEditing) "Guardar" else "Editar"
@@ -139,14 +155,17 @@ class RocketDetailFragment : Fragment() {
                 viewModel.deleteRocket(id)
             }
 
-            viewLifecycleOwner.lifecycleScope.launch {
-                viewModel.isRocketDeleted.collect { isDeleted ->
-                    if (isDeleted) {
-                        Toast.makeText(requireContext(), "¡Se ha desguazado el cohete con éxito!", Toast.LENGTH_LONG).show()
-                        findNavController().popBackStack()
-                        viewModel.resetRocketDeletedState()
-                    } else {
-                        Toast.makeText(requireContext(), "Este cohete no se puede desguazar.", Toast.LENGTH_LONG).show()
+            viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                viewModel.deleteRocketEvent.collect { result ->
+                    result.onSuccess { isDeleted ->
+                        if (isDeleted) {
+                            Toast.makeText(requireContext(), "¡Se ha desguazado el cohete con éxito!", Toast.LENGTH_LONG).show()
+                            findNavController().popBackStack()
+                        } else {
+                            Toast.makeText(requireContext(), "Este cohete no se puede desguazar.", Toast.LENGTH_LONG).show()
+                        }
+                    }.onFailure { error ->
+                        Toast.makeText(requireContext(), "Error al eliminar el cohete: ${error.message}", Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -159,6 +178,7 @@ class RocketDetailFragment : Fragment() {
 
             if (child is EditText) {
                 child.isEnabled = isEditing
+                child.background = if (isEditing) AppCompatResources.getDrawable(requireContext(), R.drawable.edit_text_background) else null
             }
         }
     }

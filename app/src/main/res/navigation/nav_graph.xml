@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/rocketListFragment">
 
     <!-- Splash Fragment definido en Jetpack Compose (Composable) -->
     <fragment
@@ -59,6 +59,13 @@
             app:exitAnim="@animator/nav_default_exit_anim"
             app:popEnterAnim="@animator/nav_default_pop_enter_anim"
             app:popExitAnim="@animator/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_rocketListFragment_to_createRocketFragment"
+            app:destination="@id/createRocketFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"
+            app:popEnterAnim="@animator/nav_default_pop_enter_anim"
+            app:popExitAnim="@animator/nav_default_pop_exit_anim" />
     </fragment>
 
     <!-- Rocket Detail Fragment -->
@@ -70,6 +77,13 @@
         <argument
             android:name="selectedRocket"
             app:argType="com.example.icb0007_uf1_pr01_samuelmateostovar.models.RocketUi" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createRocketFragment"
+        android:name="com.example.icb0007_uf1_pr01_samuelmateostovar.ui.fragments.CreateRocketFragment"
+        android:label="Create Rocket"
+        tools:layout="@layout/fragment_create_rocket">
     </fragment>
 
 </navigation>
