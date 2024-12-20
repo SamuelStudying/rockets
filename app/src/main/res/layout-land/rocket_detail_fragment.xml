@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/cl_detailFoot"
-        app:layout_constraintEnd_toEndOf="parent"
+    <!-- Encabezado del cohete -->
+    <TextView
+        android:id="@+id/tv_rocketHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rocket_name"
+        android:textSize="40sp"
+        android:paddingTop="50dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/theme"
+        android:gravity="center"
+        android:background="#2D3E4B"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Contenedor de Scroll -->
+    <ScrollView
+        android:id="@+id/sv_details"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_rocketHeader"
+        app:layout_constraintBottom_toTopOf="@id/cl_detailFoot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:id="@+id/ly_etContainer"
@@ -19,249 +40,245 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Nombre -->
+            <!-- Nombre del cohete -->
             <EditText
                 android:id="@+id/et_rocketName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Rocket Name"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/rocket_name"
-                android:inputType="text"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColorHint="@color/theme" />
 
-            <!-- Tipo -->
+            <!-- Tipo de cohete -->
             <EditText
                 android:id="@+id/et_rocketType"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Type"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/type"
-                android:inputType="text"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:textColorHint="@color/theme" />
 
             <!-- Estado del cohete -->
             <EditText
                 android:id="@+id/et_rocketActive"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Status"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/status"
-                android:inputType="text"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:textColorHint="@color/theme" />
 
-            <!-- País -->
+            <!-- País de origen -->
             <EditText
                 android:id="@+id/et_rocketCountry"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Country"
-                android:background="@null"
-                android:clickable="true"
-                android:focusable="false"
                 android:hint="@string/country"
-                android:inputType="text"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:textColorHint="@color/theme" />
 
-            <!-- Empresa -->
+            <!-- Empresa del cohete -->
             <EditText
                 android:id="@+id/et_rocketCompany"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Company"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/company"
-                android:inputType="text"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:textColorHint="@color/theme" />
 
-            <!-- Enlace Wikipedia -->
+            <!-- Enlace a Wikipedia -->
             <EditText
                 android:id="@+id/et_rocketWikipedia"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Wikipedia"
-                android:background="@null"
-                android:clickable="true"
-                android:focusable="false"
                 android:hint="@string/wikipedia"
-                android:inputType="text"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:textColorHint="@color/theme" />
 
             <!-- Costo por lanzamiento -->
             <EditText
                 android:id="@+id/et_rocketCostPerLaunch"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Cost per launch"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/cost_per_launch"
-                android:inputType="numberDecimal"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:textColorHint="@color/theme" />
 
             <!-- Tasa de éxito -->
             <EditText
                 android:id="@+id/et_rocketSuccessRate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Succes rate"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/success_rate"
-                android:inputType="numberDecimal"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:textColorHint="@color/theme" />
 
-            <!-- Tamaño: Altura -->
+            <!-- Dimensiones del cohete: Altura -->
             <TextView
                 android:id="@+id/tv_rocketHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:padding="16dp"
                 android:text="@string/altura"
-                android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:textSize="16sp"
+                android:textColor="@color/theme" />
 
             <EditText
                 android:id="@+id/et_heightMeters"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Meters"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/meters"
+                android:enabled="false"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
                 android:inputType="numberDecimal"
-                android:padding="16dp"
+                android:textSize="13sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="13sp" />
+                android:textColorHint="@color/theme" />
 
             <EditText
                 android:id="@+id/et_heightFeet"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Feet"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/feet"
+                android:enabled="false"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
                 android:inputType="numberDecimal"
-                android:padding="16dp"
+                android:textSize="13sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="13sp" />
+                android:textColorHint="@color/theme" />
 
-            <!-- Tamaño: Diámetro -->
+            <!-- Dimensiones del cohete: Diámetro -->
             <TextView
                 android:id="@+id/tv_rocketDiameter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:padding="16dp"
                 android:text="@string/di_metro"
-                android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:textSize="16sp"
+                android:textColor="@color/theme" />
 
             <EditText
                 android:id="@+id/et_diameterMeters"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Meters"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/meters"
+                android:enabled="false"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
                 android:inputType="numberDecimal"
-                android:padding="16dp"
+                android:textSize="13sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="13sp" />
+                android:textColorHint="@color/theme" />
 
             <EditText
                 android:id="@+id/et_diameterFeet"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Feet"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/feet"
+                android:enabled="false"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:background="@drawable/detail_background"
                 android:inputType="numberDecimal"
-                android:padding="16dp"
+                android:textSize="13sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="13sp" />
+                android:textColorHint="@color/theme" />
 
-            <!-- Descripción -->
+            <!-- Descripción del cohete -->
             <EditText
                 android:id="@+id/et_rocketDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Description"
-                android:background="@null"
-                android:enabled="false"
                 android:hint="@string/description"
-                android:inputType="textMultiLine"
+                android:enabled="false"
                 android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/detail_background"
+                android:inputType="textMultiLine"
+                android:textSize="16sp"
                 android:textColor="@color/theme"
-                android:textColorHint="@color/theme"
-                android:textSize="16sp" />
+                android:textColorHint="@color/theme" />
         </LinearLayout>
     </ScrollView>
 
+    <!-- Botones de pie de página -->
     <LinearLayout
         android:id="@+id/cl_detailFoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#2D3E4B"
+        android:paddingBottom="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="horizontal">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/btn_editRocket"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="8dp"
-            android:text="Editar" />
+            android:textColor="@color/black"
+            android:backgroundTint="#94B6CE"
+            android:layout_margin="16dp"
+            android:text="@string/edit" />
 
         <Button
             android:id="@+id/btn_deleteRocket"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="8dp"
-            android:text="Eliminar" />
-
+            android:backgroundTint="#94B6CE"
+            android:textColor="@color/black"
+            android:layout_margin="16dp"
+            android:text="@string/delete" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

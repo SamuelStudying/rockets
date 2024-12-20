@@ -49,8 +49,7 @@ class LoginFragment : Fragment() {
         toast?.cancel()
         toast = Toast.makeText(context, "", Toast.LENGTH_LONG)
 
-        // TODO Cambiar por que siempre es TRUE, insertar condición de user y password
-        if (true) {
+        if (userName == "admin" && password == "admin1234") {
             toast?.setText("Bienvenido '$userName' ¡Cargando motores!")
 
             val loginAction = LoginFragmentDirections.actionLoginFragmentToRocketListFragment(userName)

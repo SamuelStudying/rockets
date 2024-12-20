@@ -50,6 +50,12 @@ class RocketDetailFragment : Fragment() {
         val btnMod = view.findViewById<Button>(R.id.btn_editRocket)
         val btnDel = view.findViewById<Button>(R.id.btn_deleteRocket)
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.selectedRocket.collect { rocket ->
+                rocket?.let { showingData(it) }
+            }
+        }
+
         showingData(rocket)
         setupWikiLink(rocket)
         setupMapLink(rocket)
@@ -64,6 +70,7 @@ class RocketDetailFragment : Fragment() {
             return
         }
 
+        view?.findViewById<TextView>(R.id.tv_rocketHeader)?.text = rocket.name
         setHintToEditText(R.id.et_rocketName, rocket.name)
         setHintToEditText(R.id.et_rocketType, rocket.type)
         setHintToEditText(R.id.et_rocketActive, rocket.active.toString())
@@ -121,6 +128,7 @@ class RocketDetailFragment : Fragment() {
                 // Actualizar el cohete
                 viewModel.updateRocket(updatedRocket)
                 Toast.makeText(requireContext(), "¡Cohete actualizado con éxito!", Toast.LENGTH_SHORT).show()
+                findNavController().popBackStack()
             }
 
             btnMod.text = if (isEditing) "Guardar" else "Editar"

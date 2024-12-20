@@ -41,4 +41,6 @@
     <string name="aniadir_nuevo_cohete">Crear cohete</string>
     <string name="altura">Altura</string>
     <string name="di_metro">Diámetro</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Eliminar</string>
 </resources>

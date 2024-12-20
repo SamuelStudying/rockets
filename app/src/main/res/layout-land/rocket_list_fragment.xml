@@ -7,13 +7,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#2D3E4B" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_topHeader"
+        android:paddingTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#2D3E4B"
@@ -22,8 +18,8 @@
         <ImageView
             android:id="@+id/iv_menuHamburguesa"
             android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="8dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
             android:contentDescription="Menú hamburguesa"
             android:src="@drawable/hamburguesa"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,16 +29,12 @@
             app:layout_constraintHorizontal_bias="0.1"
             tools:ignore="HardcodedText" />
 
-        <TextView
+        <ImageView
             android:id="@+id/tv_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-smallcaps"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
             android:padding="8dp"
-            android:text="@string/rocket_list"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:src="@drawable/astro_lab"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,21 +44,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/username"
-            android:layout_margin="2dp"
+            android:layout_margin="16dp"
             android:textSize="12sp"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:textColor="@color/theme"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_rockets"
+    <LinearLayout
+        android:id="@+id/ly_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:orientation="vertical">
+
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="Buscar cohetes.."
+            android:background="@drawable/search_view_background"
+            android:iconifiedByDefault="false"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_rockets"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </LinearLayout>
 
 </LinearLayout>

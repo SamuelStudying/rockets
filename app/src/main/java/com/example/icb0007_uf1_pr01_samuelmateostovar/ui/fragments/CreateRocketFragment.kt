@@ -41,7 +41,6 @@ class CreateRocketFragment : Fragment() {
             val company = view.findViewById<EditText>(R.id.et_rocketCompany).text.toString()
             val country = view.findViewById<EditText>(R.id.et_rocketCountry).text.toString()
 
-            // Validar campos obligatorios
             if (name.isBlank() || company.isBlank() || country.isBlank()) {
                 Toast.makeText(
                     requireContext(),
